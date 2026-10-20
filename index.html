@@ -1,48 +1,314 @@
 <!doctype html>
 <html lang="pt-BR">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="description" content="Bruno Ghiggi — fotografia esportiva e fotos de corrida.">
-<meta name="theme-color" content="#0d0d0d"><title>Bruno Ghiggi | Fotos de Corrida</title>
-<style>
-:root{--y:#ffd000;--b:#0d0d0d;--w:#fff}
-*{box-sizing:border-box}body{margin:0;background:var(--b);color:#fff;font-family:Arial,Helvetica,sans-serif}
-.hero{min-height:100vh;display:flex;align-items:center;padding:30px 22px;position:relative;overflow:hidden}
-.hero:before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 18% 45%,#ffd0001c,transparent 30%),linear-gradient(110deg,#0d0d0d 30%,#0d0d0dcc 55%,#0d0d0d 100%);z-index:0}
-.wrap{width:min(1080px,100%);margin:auto;display:grid;grid-template-columns:42% 58%;align-items:center;gap:35px;position:relative;z-index:1}
-.photo{width:min(390px,100%);aspect-ratio:1;border-radius:50%;overflow:hidden;border:3px solid var(--y);box-shadow:0 0 0 12px #ffd00012,0 25px 70px #000;justify-self:center}.photo img{width:100%;height:100%;object-fit:cover;display:block}
-.kicker{color:var(--y);font-size:12px;font-weight:800;letter-spacing:4px;margin:0 0 10px}
-h1{font-size:clamp(48px,8vw,92px);line-height:.82;letter-spacing:-4px;margin:0;font-weight:950}h1 span{display:block;color:var(--y)}
-.tag{font-weight:800;letter-spacing:5px;font-size:16px;margin:17px 0 13px}.desc{font-size:18px;line-height:1.5;color:#ddd;max-width:500px;margin:0 0 25px}
-.links{display:grid;gap:12px;max-width:540px}.link{display:flex;align-items:center;justify-content:space-between;min-height:82px;padding:12px 16px 12px 18px;color:#fff;text-decoration:none;border:1px solid #ffffff55;border-radius:16px;background:#ffffff0b;backdrop-filter:blur(8px);transition:.18s}
-.link:hover{transform:translateY(-2px);border-color:var(--y);background:#ffffff12}.left{display:flex;align-items:center;gap:16px}
-.logo-box{width:145px;height:52px;display:flex;align-items:center;justify-content:flex-start;background:transparent;flex-shrink:0}.logo-box.fotto{background:#fff;border-radius:10px;padding:9px 12px}.logo-box.foco{width:170px;padding:4px 0}
-.logo-box img{max-width:100%;max-height:100%;display:block;object-fit:contain}.title{font-size:18px;font-weight:900}.sub{font-size:12px;color:#aaa;margin-top:3px}
-.arrow{width:40px;height:40px;border-radius:50%;background:var(--y);color:#111;display:grid;place-items:center;font-size:24px;font-weight:900;flex-shrink:0}
-.bottom{position:absolute;left:0;right:0;bottom:18px;text-align:center;color:#777;font-size:11px;letter-spacing:3px}
-@media(max-width:720px){.hero{padding:28px 18px 55px;align-items:flex-start}.wrap{grid-template-columns:1fr;gap:28px}.photo{width:min(290px,75vw)}.brand{text-align:center}.desc{margin-left:auto;margin-right:auto;font-size:16px}.links{margin:auto;text-align:left}.left{gap:12px}.logo-box{width:125px;height:48px}.logo-box.foco{width:140px}h1{font-size:62px;letter-spacing:-3px}.tag{font-size:13px}.bottom{display:none}}
-</style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Bruno Ghiggi | Encontre suas fotos</title>
+<meta name="description" content="Correu, pedalou, treinou ou participou de um evento? Encontre aqui suas fotos de eventos esportivos e treinos.">
+<meta property="og:title" content="Encontre suas fotos 📸">
+<meta property="og:description" content="Fotos de eventos esportivos e treinos — Fotto, Foco Radical e WhatsApp.">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#f5f4fb">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📸</text></svg>">
 <script>
+// Google Analytics 4 — troque pelo seu ID (o mesmo das páginas de redirecionamento)
 const GA_ID='G-XXXXXXXXXX';
+window.dataLayer=window.dataLayer||[];
+function gtag(){dataLayer.push(arguments);}
 if(GA_ID!=='G-XXXXXXXXXX'){
- const s=document.createElement('script');s.async=true;s.src='https://www.googletagmanager.com/gtag/js?id='+GA_ID;document.head.appendChild(s);
- window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}window.gtag=gtag;
- gtag('js',new Date());gtag('config',GA_ID,{anonymize_ip:true});
+  gtag('js',new Date());
+  gtag('config',GA_ID,{anonymize_ip:true});
+  const s=document.createElement('script');s.async=true;
+  s.src='https://www.googletagmanager.com/gtag/js?id='+GA_ID;
+  document.head.appendChild(s);
 }
-function track(platform,destination){if(typeof gtag==='function')gtag('event','click_fotos',{plataforma:platform,destino:destination});}
 </script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f5f4fb; --card:#ffffff; --ink:#1c1b29; --muted:#686779; --line:#e6e4f2;
+  --accent:#5b4cf0; --accent-ink:#ffffff; --accent-soft:rgba(91,76,240,.12); --wa:#25d366;
+  --logo-bg:#ffffff;
+  --shadow:0 1px 2px rgba(24,24,27,.04),0 8px 24px rgba(24,24,27,.06);
+  --shadow-hover:0 2px 4px rgba(24,24,27,.06),0 16px 36px rgba(24,24,27,.10);
+}
+@media (prefers-color-scheme:dark){
+  :root{
+    --bg:#0f0f17; --card:#1a1a26; --ink:#f1f0fa; --muted:#a3a2b8; --line:#2a2a3a;
+    --accent:#8b7fff; --accent-ink:#0f0f17; --accent-soft:rgba(139,127,255,.16);
+    --logo-bg:#11111a;
+    --shadow:0 1px 2px rgba(0,0,0,.3),0 8px 24px rgba(0,0,0,.25);
+    --shadow-hover:0 2px 4px rgba(0,0,0,.35),0 16px 36px rgba(0,0,0,.4);
+  }
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0; min-height:100vh; background:var(--bg); color:var(--ink);
+  font-family:"Plus Jakarta Sans",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+  line-height:1.5;
+  background-image:radial-gradient(circle at 85% -10%,rgba(91,76,240,.18),transparent 45%),
+                   radial-gradient(circle at -10% 110%,rgba(56,189,248,.12),transparent 40%);
+  background-attachment:fixed;
+}
+.page{width:min(560px,100%);margin:0 auto;padding:28px 16px 40px}
+
+/* Cabeçalho discreto */
+.top{display:flex;align-items:center;gap:12px;margin-bottom:36px}
+.avatar{width:46px;height:46px;border-radius:50%;object-fit:cover;border:2px solid var(--accent);flex-shrink:0}
+.who strong{display:block;font-size:15px;font-weight:700;line-height:1.2}
+.who span{font-size:13px;color:var(--muted)}
+
+/* Texto inicial */
+.pill{display:inline-flex;align-items:center;gap:6px;padding:6px 12px;border-radius:999px;
+  background:var(--accent-soft);color:var(--accent);font-size:13px;font-weight:700;margin-bottom:14px}
+h1{font-size:clamp(30px,7.5vw,42px);line-height:1.08;letter-spacing:-1px;font-weight:800;margin:0 0 14px}
+h1 mark{background:none;color:var(--accent);padding:0}
+.lead{font-size:16px;color:var(--muted);margin:0 0 28px}
+
+/* Links */
+.links{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:0 0 36px;padding:0;list-style:none}
+.links li{display:flex}
+.links li>.link{flex:1}
+.links .full{grid-column:1/-1}
+.link{
+  display:flex;align-items:center;gap:16px;padding:16px 18px;min-height:84px;
+  background:var(--card);border:1px solid var(--line);border-radius:20px;
+  color:var(--ink);text-decoration:none;box-shadow:var(--shadow);
+  transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease;
+}
+.link:hover{transform:translateY(-2px);box-shadow:var(--shadow-hover);border-color:var(--accent)}
+.link:active{transform:translateY(0) scale(.99)}
+.link:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+.icon{width:52px;height:52px;border-radius:16px;display:grid;place-items:center;flex-shrink:0;
+  background:var(--accent);color:var(--accent-ink)}
+.logo{width:124px;height:56px;border-radius:14px;flex-shrink:0;display:grid;place-items:center;
+  background:var(--logo-bg);border:1px solid var(--line);padding:10px 14px}
+.logo picture{display:contents}
+.logo img{max-width:100%;max-height:100%;width:auto;height:auto;display:block;object-fit:contain}
+.logo.fotto img{height:26px}
+.icon svg{width:26px;height:26px}
+.icon.wa{background:var(--wa);color:#fff}
+.icon.ig{background:radial-gradient(circle at 30% 107%,#fdf497 0%,#fd5949 45%,#d6249f 60%,#285aeb 90%);color:#fff}
+.text{flex:1;min-width:0}
+.title{display:block;font-size:17px;font-weight:800;line-height:1.25}
+.sub{display:block;font-size:14px;color:var(--muted);margin-top:2px}
+.go{width:36px;height:36px;border-radius:50%;display:grid;place-items:center;flex-shrink:0;
+  background:var(--bg);color:var(--ink);transition:background .18s,transform .18s}
+.go svg{width:18px;height:18px}
+.link:hover .go{background:var(--accent);color:var(--accent-ink);transform:translateX(2px)}
+
+/* Cards lado a lado: logo em cima, texto embaixo */
+.link.stack{flex-direction:column;align-items:center;justify-content:flex-start;text-align:center;gap:12px;padding:16px 14px 18px}
+.link.stack .logo{width:100%;height:68px;padding:12px 16px}
+.link.stack .logo.fotto img{height:30px}
+.link.stack .text{flex:0 0 auto}
+.link.stack .title{display:inline-flex;align-items:center;gap:4px;font-size:16px}
+.link.stack .title svg{width:16px;height:16px;transition:transform .18s}
+.link.stack:hover .title svg{transform:translateX(3px)}
+.link.stack .sub{font-size:13px}
+
+/* Últimos eventos (planilha) */
+.recent{margin:0 0 36px}
+.recent[hidden]{display:none}
+.recent h2{font-size:15px;font-weight:800;margin:0 0 12px}
+.events{list-style:none;margin:0;padding:0;background:var(--card);border:1px solid var(--line);border-radius:20px;box-shadow:var(--shadow);overflow:hidden}
+.events li+li{border-top:1px solid var(--line)}
+.ev{display:flex;align-items:center;gap:14px;padding:12px 16px;color:var(--ink);text-decoration:none;transition:background .15s}
+.ev:hover{background:var(--accent-soft)}
+.ev:focus-visible{outline:3px solid var(--accent);outline-offset:-3px}
+.date{width:46px;flex-shrink:0;text-align:center;border-radius:12px;background:var(--accent-soft);padding:6px 0;line-height:1.05}
+.date b{display:block;font-size:17px;font-weight:800;color:var(--accent)}
+.date small{font-size:11px;font-weight:700;text-transform:uppercase;color:var(--muted)}
+.ev-name{display:block;font-size:15px;font-weight:700;line-height:1.3}
+.ev-meta{display:flex;flex-wrap:wrap;gap:6px;margin-top:4px}
+.tag{font-size:11px;font-weight:700;padding:2px 8px;border-radius:999px;background:var(--bg);color:var(--muted);border:1px solid var(--line)}
+.tag.treino{background:rgba(37,211,102,.12);border-color:transparent;color:inherit}
+.ev .go{width:30px;height:30px}
+
+/* Como funciona */
+.how{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:20px 20px 8px;box-shadow:var(--shadow)}
+.how h2{font-size:15px;font-weight:800;margin:0 0 14px}
+.steps{list-style:none;margin:0;padding:0;counter-reset:s}
+.steps li{counter-increment:s;display:flex;gap:12px;align-items:flex-start;margin-bottom:14px;font-size:14px;color:var(--muted)}
+.steps li::before{content:counter(s);width:24px;height:24px;border-radius:50%;flex-shrink:0;
+  display:grid;place-items:center;background:var(--accent-soft);color:var(--accent);font-weight:800;font-size:12px}
+.steps b{color:var(--ink)}
+
+footer{text-align:center;color:var(--muted);font-size:12px;margin-top:32px}
+
+@media (max-width:380px){.logo{width:108px;height:50px;padding:8px 10px}.link{gap:12px;padding:14px}.link.stack{padding:14px 10px 16px}.link.stack .logo{height:58px;padding:10px 12px}}
+
+/* Entrada suave */
+.fade{opacity:0;transform:translateY(10px);animation:in .5s ease forwards}
+.d1{animation-delay:.05s}.d2{animation-delay:.12s}.d3{animation-delay:.19s}.d4{animation-delay:.26s}.d5{animation-delay:.33s}
+@keyframes in{to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){.fade{animation:none;opacity:1;transform:none}.link,.go{transition:none}}
+</style>
 </head>
 <body>
-<section class="hero"><div class="wrap">
-<div class="photo"><img src="bruno.jpg" alt="Bruno Ghiggi com sua câmera Nikon"></div>
-<div class="brand">
-<p class="kicker">FOTOGRAFIA ESPORTIVA</p><h1>BRUNO <span>GHIGGI</span></h1>
-<p class="tag">FOTOS DE CORRIDA</p>
-<p class="desc">Encontre suas fotos de corridas e eventos esportivos nos principais portais.</p>
-<div class="links">
-<a class="link" href="/fotto/" onclick="track('fotto','/fotto/')"><div class="left"><div class="logo-box fotto"><img src="https://cdn.fotto.com.br/_next/static/media/fotto-logo-isolated.e983b817.svg" alt="Fotto"></div><div><div class="title">Fotto</div><div class="sub">Veja suas fotos no Fotto</div></div></div><div class="arrow">›</div></a>
-<a class="link" href="/foco/" onclick="track('foco_radical','/foco/')"><div class="left"><div class="logo-box foco"><img src="https://cdn.brandfetch.io/idMHRizKzt/w/851/h/197/theme/dark/logo.png?c=1bxid64Mup7aczewSAYMX&t=1791145879196" alt="Foco Radical"></div><div><div class="title">Foco Radical</div><div class="sub">Veja suas fotos no Foco Radical</div></div></div><div class="arrow">›</div></a>
-<a class="link" href="/whatsapp/" onclick="track('whatsapp','/whatsapp/')"><div class="left"><div class="logo-box" style="width:55px;height:48px;font-size:30px">💬</div><div><div class="title">WhatsApp</div><div class="sub">Fale comigo pelo WhatsApp</div></div></div><div class="arrow">›</div></a>
-</div></div></div>
-<div class="bottom">BRUNO GHIGGI · FOTOGRAFIA ESPORTIVA</div></section>
-</body></html>
+<main class="page">
+
+  <header class="top fade">
+    <img class="avatar" src="bruno.jpg" alt="Bruno Ghiggi" width="46" height="46">
+    <div class="who">
+      <strong>Bruno Ghiggi</strong>
+      <span>Fotografia esportiva · Eventos e treinos</span>
+    </div>
+  </header>
+
+  <section class="fade d1">
+    <span class="pill">📸 Suas fotos estão prontas</span>
+    <h1>Bora achar as <mark>suas fotos</mark>?</h1>
+    <p class="lead">Correu, pedalou ou participou de algum evento ou treino que eu fotografei? Escolha uma das plataformas abaixo, procure pelo evento e garanta as suas fotos.</p>
+  </section>
+
+  <ul class="links">
+    <li class="fade d2">
+      <a class="link stack" href="./fotto/index.html">
+        <span class="logo fotto"><img src="img/fotto.svg" alt="Fotto" width="132" height="39"></span>
+        <span class="text">
+          <span class="title">Ver fotos <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></span>
+          <span class="sub">Galerias na Fotto</span>
+        </span>
+      </a>
+    </li>
+    <li class="fade d3">
+      <a class="link stack" href="./foco/index.html">
+        <span class="logo foco">
+          <picture>
+            <source srcset="img/foco-radical-escuro.png" media="(prefers-color-scheme: dark)">
+            <img src="img/foco-radical.png" alt="Foco Radical" width="851" height="197">
+          </picture>
+        </span>
+        <span class="text">
+          <span class="title">Ver fotos <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></span>
+          <span class="sub">Galerias na Foco Radical</span>
+        </span>
+      </a>
+    </li>
+    <li class="fade d4 full">
+      <a class="link" href="./whatsapp/index.html">
+        <span class="icon wa" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2c0 1.3.9 2.5 1.1 2.7.1.2 1.8 2.8 4.4 3.9 1.6.7 2.3.8 3.1.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2l-.5-.4z"/></svg>
+        </span>
+        <span class="text">
+          <span class="title">Não achou sua foto?</span>
+          <span class="sub">Me chama no WhatsApp que eu te ajudo</span>
+        </span>
+        <span class="go" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></span>
+      </a>
+    </li>
+    <li class="fade d4 full">
+      <a class="link" href="./instagram/index.html">
+        <span class="icon ig" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+        </span>
+        <span class="text">
+          <span class="title">@brunoghiggi</span>
+          <span class="sub">Me siga no Instagram e veja os próximos eventos</span>
+        </span>
+        <span class="go" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></span>
+      </a>
+    </li>
+  </ul>
+
+  <section class="recent fade d5" id="recentes" aria-labelledby="rec" hidden>
+    <h2 id="rec">Últimos eventos e treinos</h2>
+    <ul class="events" id="lista-eventos"></ul>
+  </section>
+
+  <section class="how fade d5" aria-labelledby="como">
+    <h2 id="como">Como encontrar suas fotos</h2>
+    <ol class="steps">
+      <li><span><b>Escolha a plataforma</b> onde o seu evento ou treino foi publicado.</span></li>
+      <li><span><b>Procure pelo evento</b> (nome da prova, do treino ou data).</span></li>
+      <li><span><b>Selecione suas fotos</b> e baixe em alta qualidade.</span></li>
+    </ol>
+  </section>
+
+  <footer>© <span id="ano">2026</span> Bruno Ghiggi · Fotografia esportiva</footer>
+</main>
+<script>
+document.getElementById('ano').textContent=new Date().getFullYear();
+
+// ===== Últimos eventos =====
+// Cole aqui o link da planilha Google publicada como CSV (Arquivo → Compartilhar → Publicar na Web → CSV).
+// Enquanto estiver vazio, a seção fica escondida.
+const PLANILHA_CSV='https://docs.google.com/spreadsheets/d/e/2PACX-1vSmWZwzOkWStdu72XT_VYZd1e71oqfradBQ7mztD5UXeeukCcDrkGiACFKJm9VzCqMWvxNNhjE3cQ__/pub?output=csv';
+const MAX_EVENTOS=6;
+
+const PLATAFORMAS={fotto:{nome:'Fotto',link:'./fotto/index.html'},foco:{nome:'Foco Radical',link:'./foco/index.html'}};
+const MESES=['jan','fev','mar','abr','mai','jun','jul','ago','set','out','nov','dez'];
+
+function lerCSV(txt){
+  const linhas=[];let campo='',linha=[],aspas=false;
+  for(let i=0;i<txt.length;i++){
+    const c=txt[i];
+    if(aspas){
+      if(c==='"'){if(txt[i+1]==='"'){campo+='"';i++}else aspas=false}
+      else campo+=c;
+    }else if(c==='"')aspas=true;
+    else if(c===','){linha.push(campo);campo=''}
+    else if(c==='\n'||c==='\r'){
+      if(c==='\r'&&txt[i+1]==='\n')i++;
+      linha.push(campo);linhas.push(linha);linha=[];campo='';
+    }else campo+=c;
+  }
+  if(campo!==''||linha.length){linha.push(campo);linhas.push(linha)}
+  return linhas;
+}
+function lerData(v){
+  const m=String(v||'').trim().match(/^(\d{1,2})\/(\d{1,2})\/(\d{2,4})$/);
+  if(!m)return null;
+  const a=+m[3]<100?2000+ +m[3]:+m[3];
+  const d=new Date(a,+m[2]-1,+m[1]);
+  return isNaN(d)?null:d;
+}
+function plataforma(v){
+  const t=String(v||'').toLowerCase();
+  if(t.includes('foco'))return PLATAFORMAS.foco;
+  if(t.includes('fotto'))return PLATAFORMAS.fotto;
+  return null;
+}
+function el(tag,cls,txt){const e=document.createElement(tag);if(cls)e.className=cls;if(txt!=null)e.textContent=txt;return e}
+
+async function carregarEventos(){
+  if(!PLANILHA_CSV)return;
+  try{
+    const r=await fetch(PLANILHA_CSV+(PLANILHA_CSV.includes('?')?'&':'?')+'t='+Date.now(),{cache:'no-store'});
+    if(!r.ok)return;
+    const linhas=lerCSV(await r.text());
+    const cab=(linhas.shift()||[]).map(h=>h.trim().toLowerCase());
+    const col=n=>cab.findIndex(h=>h.startsWith(n));
+    const iData=col('data'),iEv=col('evento'),iTipo=col('tipo'),iPlat=col('plataforma'),iLink=col('link');
+    const evs=linhas.map(l=>({
+      data:lerData(l[iData]),nome:(l[iEv]||'').trim(),
+      tipo:(l[iTipo]||'').trim(),plat:plataforma(l[iPlat]),link:(l[iLink]||'').trim()
+    })).filter(e=>e.nome&&e.data).sort((a,b)=>b.data-a.data).slice(0,MAX_EVENTOS);
+    if(!evs.length)return;
+    const ul=document.getElementById('lista-eventos');
+    for(const e of evs){
+      const href=/^https?:\/\//i.test(e.link)?e.link:(e.plat?e.plat.link:'./whatsapp/index.html');
+      const a=el('a','ev');a.href=href;
+      if(/^https?:/i.test(href)){a.target='_blank';a.rel='noopener'}
+      const dt=el('span','date');dt.append(el('b',null,String(e.data.getDate()).padStart(2,'0')),el('small',null,MESES[e.data.getMonth()]));
+      const tx=el('span','text');tx.append(el('span','ev-name',e.nome));
+      const meta=el('span','ev-meta');
+      if(e.tipo){meta.append(el('span','tag'+(/treino/i.test(e.tipo)?' treino':''),e.tipo))}
+      if(e.plat){meta.append(el('span','tag',e.plat.nome))}
+      if(meta.childNodes.length)tx.append(meta);
+      const go=el('span','go');go.setAttribute('aria-hidden','true');
+      go.innerHTML='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg>';
+      a.append(dt,tx,go);
+      const li=el('li');li.append(a);ul.append(li);
+    }
+    document.getElementById('recentes').hidden=false;
+  }catch(err){/* sem internet ou planilha indisponível: seção continua escondida */}
+}
+carregarEventos();
+</script>
+</body>
+</html>

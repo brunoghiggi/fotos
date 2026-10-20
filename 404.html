@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Página não encontrada — Bruno Ghiggi</title>
+<style>
+body{margin:0;min-height:100vh;display:grid;place-items:center;background:#f5f4fb;color:#1c1b29;font-family:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;text-align:center;padding:16px}
+@media (prefers-color-scheme:dark){body{background:#0f0f17;color:#f1f0fa}}
+a{display:inline-block;margin-top:12px;padding:12px 20px;border-radius:999px;background:#5b4cf0;color:#fff;font-weight:700;text-decoration:none}
+</style>
+</head>
+<body>
+<div>
+<p style="font-size:40px;margin:0">📸</p>
+<h1 style="font-size:22px">Ops, essa página não existe.</h1>
+<a id="home" href="./">Ir para as fotos</a>
+</div>
+<script>
+// Volta para a raiz do site, funcionando tanto em usuario.github.io quanto em usuario.github.io/repositorio/
+var p=location.pathname.split('/').filter(Boolean);
+var base=location.hostname.endsWith('github.io')&&p.length?'/'+p[0]+'/':'/';
+document.getElementById('home').href=base;
+</script>
+</body>
+</html>

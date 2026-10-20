@@ -12,7 +12,7 @@
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📸</text></svg>">
 <script>
 // Google Analytics 4 — troque pelo seu ID (o mesmo das páginas de redirecionamento)
-const GA_ID='G-XXXXXXXXXX';
+const GA_ID='G-ZYEYSRHQ79';
 window.dataLayer=window.dataLayer||[];
 function gtag(){dataLayer.push(arguments);}
 if(GA_ID!=='G-XXXXXXXXXX'){
@@ -369,6 +369,13 @@ async function carregarEventos(){
       const li=el('li');li.append(a);ul.append(li);
     }
     document.getElementById('recentes').hidden=false;
+    // conta o clique em cada evento (nome do evento aparece no Analytics)
+    document.getElementById('recentes').addEventListener('click',ev=>{
+      const card=ev.target.closest('a.feature,a.ev');
+      if(!card||typeof gtag!=='function')return;
+      const nome=(card.querySelector('.f-name,.ev-name')||{}).textContent||'';
+      gtag('event','evento_click',{evento:nome,destaque:card.classList.contains('feature')?'sim':'nao',destino:card.href,transport_type:'beacon'});
+    });
   }catch(err){/* sem internet ou planilha indisponível: seção continua escondida */}
 }
 carregarEventos();

@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Bruno Ghiggi — fotografia esportiva e fotos de corrida.">
+<meta name="theme-color" content="#0d0d0d"><title>Bruno Ghiggi | Fotos de Corrida</title>
+<style>
+:root{--y:#ffd000;--b:#0d0d0d;--w:#fff}
+*{box-sizing:border-box}body{margin:0;background:var(--b);color:#fff;font-family:Arial,Helvetica,sans-serif}
+.hero{min-height:100vh;display:flex;align-items:center;padding:30px 22px;position:relative;overflow:hidden}
+.hero:before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 18% 45%,#ffd0001c,transparent 30%),linear-gradient(110deg,#0d0d0d 30%,#0d0d0dcc 55%,#0d0d0d 100%);z-index:0}
+.wrap{width:min(1080px,100%);margin:auto;display:grid;grid-template-columns:42% 58%;align-items:center;gap:35px;position:relative;z-index:1}
+.photo{width:min(390px,100%);aspect-ratio:1;border-radius:50%;overflow:hidden;border:3px solid var(--y);box-shadow:0 0 0 12px #ffd00012,0 25px 70px #000;justify-self:center}.photo img{width:100%;height:100%;object-fit:cover;display:block}
+.kicker{color:var(--y);font-size:12px;font-weight:800;letter-spacing:4px;margin:0 0 10px}
+h1{font-size:clamp(48px,8vw,92px);line-height:.82;letter-spacing:-4px;margin:0;font-weight:950}h1 span{display:block;color:var(--y)}
+.tag{font-weight:800;letter-spacing:5px;font-size:16px;margin:17px 0 13px}.desc{font-size:18px;line-height:1.5;color:#ddd;max-width:500px;margin:0 0 25px}
+.links{display:grid;gap:12px;max-width:540px}.link{display:flex;align-items:center;justify-content:space-between;min-height:82px;padding:12px 16px 12px 18px;color:#fff;text-decoration:none;border:1px solid #ffffff55;border-radius:16px;background:#ffffff0b;backdrop-filter:blur(8px);transition:.18s}
+.link:hover{transform:translateY(-2px);border-color:var(--y);background:#ffffff12}.left{display:flex;align-items:center;gap:16px}
+.logo-box{width:145px;height:52px;display:flex;align-items:center;justify-content:flex-start;background:transparent;flex-shrink:0}.logo-box.fotto{background:#fff;border-radius:10px;padding:9px 12px}.logo-box.foco{width:170px;padding:4px 0}
+.logo-box img{max-width:100%;max-height:100%;display:block;object-fit:contain}.title{font-size:18px;font-weight:900}.sub{font-size:12px;color:#aaa;margin-top:3px}
+.arrow{width:40px;height:40px;border-radius:50%;background:var(--y);color:#111;display:grid;place-items:center;font-size:24px;font-weight:900;flex-shrink:0}
+.bottom{position:absolute;left:0;right:0;bottom:18px;text-align:center;color:#777;font-size:11px;letter-spacing:3px}
+@media(max-width:720px){.hero{padding:28px 18px 55px;align-items:flex-start}.wrap{grid-template-columns:1fr;gap:28px}.photo{width:min(290px,75vw)}.brand{text-align:center}.desc{margin-left:auto;margin-right:auto;font-size:16px}.links{margin:auto;text-align:left}.left{gap:12px}.logo-box{width:125px;height:48px}.logo-box.foco{width:140px}h1{font-size:62px;letter-spacing:-3px}.tag{font-size:13px}.bottom{display:none}}
+</style>
+<script>
+const GA_ID='G-XXXXXXXXXX';
+if(GA_ID!=='G-XXXXXXXXXX'){
+ const s=document.createElement('script');s.async=true;s.src='https://www.googletagmanager.com/gtag/js?id='+GA_ID;document.head.appendChild(s);
+ window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}window.gtag=gtag;
+ gtag('js',new Date());gtag('config',GA_ID,{anonymize_ip:true});
+}
+function track(platform,destination){if(typeof gtag==='function')gtag('event','click_fotos',{plataforma:platform,destino:destination});}
+</script>
+</head>
+<body>
+<section class="hero"><div class="wrap">
+<div class="photo"><img src="bruno.jpg" alt="Bruno Ghiggi com sua câmera Nikon"></div>
+<div class="brand">
+<p class="kicker">FOTOGRAFIA ESPORTIVA</p><h1>BRUNO <span>GHIGGI</span></h1>
+<p class="tag">FOTOS DE CORRIDA</p>
+<p class="desc">Encontre suas fotos de corridas e eventos esportivos nos principais portais.</p>
+<div class="links">
+<a class="link" href="/fotto/" onclick="track('fotto','/fotto/')"><div class="left"><div class="logo-box fotto"><img src="https://cdn.fotto.com.br/_next/static/media/fotto-logo-isolated.e983b817.svg" alt="Fotto"></div><div><div class="title">Fotto</div><div class="sub">Veja suas fotos no Fotto</div></div></div><div class="arrow">›</div></a>
+<a class="link" href="/foco/" onclick="track('foco_radical','/foco/')"><div class="left"><div class="logo-box foco"><img src="https://cdn.brandfetch.io/idMHRizKzt/w/851/h/197/theme/dark/logo.png?c=1bxid64Mup7aczewSAYMX&t=1791145879196" alt="Foco Radical"></div><div><div class="title">Foco Radical</div><div class="sub">Veja suas fotos no Foco Radical</div></div></div><div class="arrow">›</div></a>
+<a class="link" href="/whatsapp/" onclick="track('whatsapp','/whatsapp/')"><div class="left"><div class="logo-box" style="width:55px;height:48px;font-size:30px">💬</div><div><div class="title">WhatsApp</div><div class="sub">Fale comigo pelo WhatsApp</div></div></div><div class="arrow">›</div></a>
+</div></div></div>
+<div class="bottom">BRUNO GHIGGI · FOTOGRAFIA ESPORTIVA</div></section>
+</body></html>

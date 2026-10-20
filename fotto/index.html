@@ -1,0 +1,6 @@
+<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Fotto</title>
+<script>
+const GA_ID='G-XXXXXXXXXX', destination='https://www.fotto.com.br/brunoghiggi', platform='fotto';
+function go(){if(typeof gtag==='function'){let sent=false;gtag('event','redirect_click',{plataforma:platform,destino:destination},{event_callback:()=>{sent=true;location.replace(destination)}});setTimeout(()=>{if(!sent)location.replace(destination)},900)}else location.replace(destination)}
+if(GA_ID!=='G-XXXXXXXXXX'){const s=document.createElement('script');s.async=true;s.src='https://www.googletagmanager.com/gtag/js?id='+GA_ID;s.onload=()=>{window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}window.gtag=gtag;gtag('js',new Date());gtag('config',GA_ID,{anonymize_ip:true});go()};document.head.appendChild(s)}else go();
+</script></head><body style="font-family:Arial;text-align:center;padding:60px;background:#111;color:#fff"><p>Redirecionando…</p><noscript><a href="https://www.fotto.com.br/brunoghiggi">Continuar</a></noscript></body></html>
